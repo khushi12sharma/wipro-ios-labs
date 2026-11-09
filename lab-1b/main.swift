@@ -11,6 +11,7 @@ if let account = BankAccount(
     print("Initial Balance:", account.currentBalance)
 
     print("\n===== DEPOSIT =====")
+
     if account.deposit(500) {
         print("Deposit Successful!")
     }
@@ -18,6 +19,7 @@ if let account = BankAccount(
     print("Balance:", account.currentBalance)
 
     print("\n===== WITHDRAWAL =====")
+
     if account.withdraw(200) {
         print("Withdrawal Successful!")
     }
@@ -33,7 +35,7 @@ if let account = BankAccount(
 
     print("\nFinal Balance:", account.currentBalance)
 
-    demonstrateAccessControl(account: account)
+    runAccessDemo()
 
 } else {
     print("Invalid account details!")
