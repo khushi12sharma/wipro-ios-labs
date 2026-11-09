@@ -1,0 +1,18 @@
+
+Lab 5B: async/await and Task
+
+1. Async Function:
+An async function performs asynchronous work. It can pause while waiting for a result without blocking the main thread.
+
+2. Task:
+A Task creates and runs asynchronous work. It allows us to start an async operation.
+
+3. Difference between async function and Task:
+An async function only defines asynchronous work. It does not execute by itself.
+A Task starts and manages the execution of asynchronous work.
+
+4. Cancellation:
+Task cancellation helps stop unnecessary work when the user no longer needs the result. Task.checkCancellation() checks whether the task has been cancelled.
+
+5. UI Updates:
+UI updates are performed on the main actor to keep the interface safe and responsive.
