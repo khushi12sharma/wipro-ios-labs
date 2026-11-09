@@ -1,0 +1,5 @@
+App loaded | Main Thread: true
+Operation started | Main Thread: true
+Background work started | Main Thread: false
+Background work completed | Main Thread: false
+UI updated on main thread | Main Thread: true
