@@ -1,0 +1,25 @@
+
+Lab 5C: Task Groups and Structured Concurrency
+
+===== SEQUENTIAL EXECUTION =====
+Sequential: Course 3 failed
+Successful courses: 4
+Sequential Time: Approximately 7.5 seconds
+
+===== CONCURRENT EXECUTION =====
+Concurrent: Course 3 failed
+Successful courses: 4
+Concurrent Time: Approximately 2.5 seconds
+
+===== COMPARISON =====
+Sequential execution takes longer because requests run one by one.
+Concurrent execution is faster because independent requests run together.
+
+Result:
+4 courses fetched successfully.
+1 course request failed.
+Failed request: Course 3
+
+Note:
+This is sample expected output.
+Actual timing must be measured by running the Swift program.
