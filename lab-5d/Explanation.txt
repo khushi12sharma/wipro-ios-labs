@@ -1,0 +1,33 @@
+# Lab 5D: Concurrency Safety
+
+## 1. Unsafe Shared Mutable State
+
+In the before implementation, multiple concurrent operations update the same counter.
+
+The counter is a shared mutable variable. When multiple tasks access and modify it at the same time without synchronisation, a data race can occur.
+
+The result may become incorrect because updates can interfere with each other.
+
+## 2. Safety Fix Using Actor
+
+In the after implementation, I used a Swift actor named SafeCounter.
+
+An actor protects its mutable state and allows only one operation at a time to access that state.
+
+All 1000 increment operations are performed safely, and the final result is 1000.
+
+## 3. What is Sendable?
+
+Sendable is a Swift protocol that indicates a value can safely be shared across concurrency boundaries.
+
+Value types such as simple integers are generally safe to transfer. Actors also provide safe access to their isolated state.
+
+Unsafe shared mutable objects should not be passed between concurrent tasks without proper synchronisation.
+
+## 4. Compiler Warnings
+
+Compiler warnings help identify possible concurrency problems.
+
+The unsafe counter uses shared mutable state without synchronisation. The actor-based implementation protects the shared state.
+
+A successful run does not prove that the unsafe implementation is free from data races.
