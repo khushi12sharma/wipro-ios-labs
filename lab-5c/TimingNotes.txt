@@ -1,0 +1,27 @@
+
+Lab 5C: Task Groups and Structured Concurrency
+
+1. Sequential Execution:
+In sequential execution, each course request starts only after the previous request finishes.
+
+2. Concurrent Execution:
+In concurrent execution, multiple course requests run at the same time using a Task Group.
+
+3. Timing Comparison:
+Each course request has a simulated delay.
+Sequential execution waits for all requests one by one.
+Concurrent execution runs independent requests together, so the total execution time is generally lower.
+
+4. Error Handling:
+Course ID 3 is intentionally configured to fail.
+The implementation returns the successful course results and skips the failed request.
+This is a partial-results approach.
+
+5. Cancellation and Task Lifetime:
+Task.checkCancellation() checks whether a task has been cancelled.
+A Task Group manages the lifetime of its child tasks.
+The parent scope waits for its child tasks to finish before returning.
+
+Note:
+Actual timing values depend on the system and execution environment.
+Record the measured values from the test output.
