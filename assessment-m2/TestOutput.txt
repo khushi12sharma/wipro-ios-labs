@@ -1,0 +1,44 @@
+# Milestone 2: Actual Test Output
+
+## R1: MVVM Task List
+
+===== TASK LIST =====
+1 Learn Swift - Pending
+2 Practice MVVM - Pending
+3 Complete Assignment - Pending
+
+===== AFTER COMPLETING TASK 1 =====
+1 Learn Swift - Completed
+2 Practice MVVM - Pending
+3 Complete Assignment - Pending
+
+Pending Tasks: 2
+
+Result: All ViewModel operations worked successfully.
+
+## R2: Concurrent Data Fetching
+
+===== DASHBOARD =====
+User: Khushi
+Courses:
+- Swift
+- Concurrency
+Both data sources fetched successfully
+
+Result: Both independent data sources were fetched concurrently.
+
+## R3: Loading, Success, Error and Cancellation
+
+===== SUCCESS STATE =====
+Loading...
+Success: Data loaded successfully
+
+===== ERROR STATE =====
+Loading...
+Error: Failed to load data
+
+===== CANCELLATION STATE =====
+Loading...
+Cancelled: Request was cancelled
+
+Result: All four states were demonstrated successfully.
