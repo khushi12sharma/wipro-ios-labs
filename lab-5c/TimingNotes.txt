@@ -2,3 +2,10 @@ Sequential Time: 7.503 seconds
 Concurrent Time: 2.501 seconds
 
 Concurrent execution was approximately 3 times faster than sequential execution.
+### Cancellation and Task Lifetime
+
+- `Task.checkCancellation()` checks whether the current task has been cancelled.
+- Each course request checks for cancellation after the simulated delay.
+- A Task Group manages the lifetime of its child tasks.
+- The parent task waits for all child tasks to finish before returning.
+- If a child task fails, this implementation handles the error and continues collecting successful results. This is a partial-results approach.
