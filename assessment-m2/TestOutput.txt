@@ -42,3 +42,39 @@ Loading...
 Cancelled: Request was cancelled
 
 Result: All four states were demonstrated successfully.
+
+===== INTEGRATED MILESTONE 2 TEST OUTPUT =====
+
+R1: VIEWMODEL TESTS
+
+Test 1 Passed: Tasks added successfully
+Test 2 Passed: Task completed successfully
+Test 3 Passed: Pending tasks count is correct
+
+R2: CONCURRENT DATA FETCHING
+
+===== DASHBOARD =====
+User: Khushi
+Courses:
+- Swift
+- Concurrency
+Both data sources fetched successfully
+
+R3: SUCCESS STATE
+
+Loading...
+Success: Data loaded successfully
+
+R3: ERROR STATE
+
+Loading...
+Error: Failed to load data
+
+R3: CANCELLATION STATE
+
+Loading...
+Cancelled: Request was cancelled
+
+RESULT:
+R1, R2 and R3 executed successfully.
+All four dashboard states demonstrated.
