@@ -1,0 +1,30 @@
+# Milestone 2: Architecture and Concurrency
+
+## R4: Why UI Updates Belong on the Main Actor
+
+The main thread is responsible for handling user interface operations.
+
+UI updates should happen on the main thread to keep the interface responsive and avoid unexpected UI behaviour.
+
+In Swift, `@MainActor` ensures that the code accessing UI-related properties runs on the main actor.
+
+Background tasks can perform time-consuming operations, such as network requests, without blocking the user interface.
+
+After the data is ready, the result can be safely passed to the main actor for updating the UI.
+
+## R5: Concurrency Concepts
+
+### 1. GCD (Grand Central Dispatch)
+GCD is used to execute tasks on background or main dispatch queues. It helps perform operations concurrently.
+
+### 2. async/await
+It makes asynchronous code easier to read and write. The `async` keyword declares an asynchronous function, while `await` waits for its result.
+
+### 3. Task
+A Task starts and manages an asynchronous operation. It can be cancelled when it is no longer needed.
+
+### 4. Task Groups
+Task Groups allow multiple child tasks to run concurrently. They are useful when several independent operations need to be performed together.
+
+### Conclusion
+GCD manages work using dispatch queues, async/await simplifies asynchronous code, Task manages individual asynchronous operations, and Task Groups manage multiple concurrent child tasks.
