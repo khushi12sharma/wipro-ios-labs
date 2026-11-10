@@ -38,8 +38,12 @@ class UserService {
 
             return users
 
+        } catch is CancellationError {
+            throw CancellationError()
+
         } catch let error as NetworkError {
             throw error
+
         } catch {
             throw NetworkError.networkFailed
         }
