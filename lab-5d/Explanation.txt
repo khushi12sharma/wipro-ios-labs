@@ -31,3 +31,8 @@ Compiler warnings help identify possible concurrency problems.
 The unsafe counter uses shared mutable state without synchronisation. The actor-based implementation protects the shared state.
 
 A successful run does not prove that the unsafe implementation is free from data races.
+
+## 5. Compiler Warning Check
+
+The code was compiled and executed successfully.
+No compiler warnings were displayed during this test.
