@@ -8,12 +8,30 @@ final class SettingsViewController: UIViewController {
     private let themeControl = UISegmentedControl(items: ["Light", "Dark"])
     private let fontSlider = UISlider()
     private let fontValueLabel = UILabel()
+
     private let summaryView = SettingsSummaryView()
+    private let scrollView = UIScrollView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+
         setupUI()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillChangeFrame),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+
         updateSummary()
     }
 
@@ -36,6 +54,10 @@ final class SettingsViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("viewDidDisappear")
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     private func setupUI() {
@@ -69,10 +91,14 @@ final class SettingsViewController: UIViewController {
         themeLabel.text = "Theme"
 
         let stack = UIStackView(arrangedSubviews: [
-            nameLabel, nameField,
-            notificationLabel, notificationSwitch,
-            themeLabel, themeControl,
-            fontValueLabel, fontSlider,
+            nameLabel,
+            nameField,
+            notificationLabel,
+            notificationSwitch,
+            themeLabel,
+            themeControl,
+            fontValueLabel,
+            fontSlider,
             summaryView
         ])
 
@@ -80,20 +106,44 @@ final class SettingsViewController: UIViewController {
         stack.spacing = 14
         stack.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(stack)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+
+        scrollView.addSubview(stack)
 
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor
+            ),
+            scrollView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor
+            ),
+            scrollView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor
+            ),
+            scrollView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor
+            ),
+
             stack.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                equalTo: scrollView.contentLayoutGuide.topAnchor,
                 constant: 20
             ),
             stack.leadingAnchor.constraint(
-                equalTo: view.leadingAnchor,
+                equalTo: scrollView.contentLayoutGuide.leadingAnchor,
                 constant: 20
             ),
             stack.trailingAnchor.constraint(
-                equalTo: view.trailingAnchor,
+                equalTo: scrollView.contentLayoutGuide.trailingAnchor,
                 constant: -20
+            ),
+            stack.bottomAnchor.constraint(
+                equalTo: scrollView.contentLayoutGuide.bottomAnchor,
+                constant: -20
+            ),
+            stack.widthAnchor.constraint(
+                equalTo: scrollView.frameLayoutGuide.widthAnchor,
+                constant: -40
             )
         ])
 
@@ -120,6 +170,12 @@ final class SettingsViewController: UIViewController {
             action: #selector(controlChanged),
             for: .valueChanged
         )
+
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissKeyboard)
+        )
+        view.addGestureRecognizer(tapGesture)
     }
 
     @objc private func controlChanged() {
@@ -137,5 +193,41 @@ final class SettingsViewController: UIViewController {
             theme: theme,
             fontSize: fontSlider.value
         )
+    }
+
+    @objc private func keyboardWillChangeFrame(
+        notification: Notification
+    ) {
+        guard
+            let keyboardFrame = notification.userInfo?[
+                UIResponder.keyboardFrameEndUserInfoKey
+            ] as? CGRect
+        else {
+            return
+        }
+
+        let convertedFrame = scrollView.convert(
+            keyboardFrame,
+            from: nil
+        )
+
+        let overlap = max(
+            0,
+            scrollView.bounds.maxY - convertedFrame.minY
+        )
+
+        scrollView.contentInset.bottom = overlap
+        scrollView.scrollIndicatorInsets.bottom = overlap
+    }
+
+    @objc private func keyboardWillHide(
+        notification: Notification
+    ) {
+        scrollView.contentInset.bottom = 0
+        scrollView.scrollIndicatorInsets.bottom = 0
+    }
+
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
