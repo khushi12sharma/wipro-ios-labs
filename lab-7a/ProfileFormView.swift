@@ -24,6 +24,7 @@ class ProfileFormView: UIView {
 
         nameField.placeholder = "Enter your name"
         nameField.borderStyle = .roundedRect
+        nameField.autocapitalizationType = .words
         nameField.textContentType = .name
         nameField.accessibilityLabel = "Name"
 
@@ -58,10 +59,26 @@ class ProfileFormView: UIView {
         addSubview(stack)
 
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            stack.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
+
+            stack.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: 20
+            ),
+
+            stack.trailingAnchor.constraint(
+                equalTo: trailingAnchor,
+                constant: -20
+            ),
+
+            stack.topAnchor.constraint(
+                equalTo: topAnchor,
+                constant: 20
+            ),
+
+            stack.bottomAnchor.constraint(
+                equalTo: bottomAnchor,
+                constant: -20
+            ),
 
             nameField.heightAnchor.constraint(equalToConstant: 48),
             emailField.heightAnchor.constraint(equalToConstant: 48),
