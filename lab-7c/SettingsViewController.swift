@@ -108,7 +108,6 @@ final class SettingsViewController: UIViewController {
 
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
-
         scrollView.addSubview(stack)
 
         NSLayoutConstraint.activate([
@@ -175,6 +174,8 @@ final class SettingsViewController: UIViewController {
             target: self,
             action: #selector(dismissKeyboard)
         )
+
+        tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
     }
 
