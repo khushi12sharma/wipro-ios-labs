@@ -2,37 +2,48 @@
 # Lab 7A: UIKit Profile Form
 
 ## Objective
-Build a usable UIKit profile form with input validation and responsive Auto Layout constraints.
+Build a UIKit profile form using UIView and UIViewController with input validation and responsive Auto Layout constraints.
 
 ## Features
-- Name input field
-- Email input field
-- Course input field
+- Name, email and course input fields
 - Submit button
 - Required field validation
 - Email format validation
 - Alert-based error messages
-- Keyboard type configuration
+- Email keyboard configuration
+- Text content types
 - Accessibility labels
 - Keyboard dismissal
-- Auto Layout constraints using UIStackView
+- Responsive Auto Layout using NSLayoutConstraint
+- Reusable UI components using UIStackView
 
 ## Technologies Used
 - Swift
 - UIKit
 - UIView
 - UIViewController
+- UIStackView
 - Auto Layout
 - UIAlertController
 
-## Project Files
+## Project Structure
 - ProfileViewController.swift
 - ProfileFormView.swift
 - Validation.swift
 - TestCases.md
+- README.md
+
+## Validation
+The ProfileValidator checks:
+- Empty name
+- Invalid email
+- Empty course
+- Whitespace-only input
 
 ## Testing
-Validation test cases cover empty fields, invalid email, and successful form submission.
+Seven validation test cases are documented in TestCases.md.
+
+Note: Actual execution and simulator testing are pending because Xcode is not available in the current Windows environment.
 
 ## Platform
 iOS - UIKit
