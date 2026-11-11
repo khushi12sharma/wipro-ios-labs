@@ -18,16 +18,23 @@ class ProfileViewController: UIViewController {
         view.addSubview(profileView)
 
         NSLayoutConstraint.activate([
+
             profileView.leadingAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.leadingAnchor,
                 constant: 20
             ),
+
             profileView.trailingAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                 constant: -20
             ),
+
             profileView.centerYAnchor.constraint(
                 equalTo: view.centerYAnchor
+            ),
+
+            profileView.heightAnchor.constraint(
+                equalToConstant: 286
             )
         ])
 
@@ -51,6 +58,7 @@ class ProfileViewController: UIViewController {
     }
 
     @objc func submitForm() {
+
         dismissKeyboard()
 
         let name = profileView.nameField.text ?? ""
@@ -78,18 +86,25 @@ class ProfileViewController: UIViewController {
             preferredStyle: .alert
         )
 
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .default)
+        )
+
         present(alert, animated: true)
     }
 
     func showError(_ message: String) {
+
         let alert = UIAlertController(
             title: "Validation Error",
             message: message,
             preferredStyle: .alert
         )
 
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .default)
+        )
+
         present(alert, animated: true)
     }
 }
