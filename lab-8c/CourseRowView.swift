@@ -7,13 +7,15 @@ struct CourseRowView: View {
 
     var body: some View {
         HStack {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(course.title)
-                    .font(.headline)
+            NavigationLink(value: course) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(course.title)
+                        .font(.headline)
 
-                Text(course.category)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    Text(course.category)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
             }
 
             Spacer()
