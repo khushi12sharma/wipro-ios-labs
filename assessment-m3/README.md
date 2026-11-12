@@ -2,11 +2,9 @@
 # Milestone 3: Networking and UIKit
 
 ## Objective
-Build a UIKit application demonstrating form validation,
-networking, JSON decoding and navigation.
+Build a UIKit application demonstrating form validation, networking, JSON decoding and navigation.
 
 ## Requirements
-
 1. UIKit form with validation and Auto Layout.
 2. Fetch JSON data using URLSession.
 3. Decode API response using Codable models.
@@ -20,11 +18,30 @@ networking, JSON decoding and navigation.
 - URLSession
 - Codable
 - Auto Layout
+- UITableView
+- UINavigationController
 
 ## Project Files
-Source code and documentation will be added here.
+
+| File | Description |
+|---|---|
+| README.md | Project overview |
+| User.swift | Codable user models |
+| APIService.swift | API networking and JSON decoding |
+| Validation.swift | Form validation |
+| AssessmentViewController.swift | Main form and user list |
+| UserDetailViewController.swift | User detail screen |
+| NavigationSetup.swift | Navigation controller setup |
+| VivaNotes.md | Viva preparation |
+| TestCases.md | Test cases and expected results |
+
+## API Used
+https://dummyjson.com/users
 
 ## Testing Status
-The source code is prepared on Windows.
-Actual UIKit execution and simulator testing require macOS and Xcode.
-These tests have not been performed.
+Source code and documentation have been prepared on Windows.
+
+Actual UIKit execution, simulator testing and visual verification have not been performed because macOS and Xcode are unavailable.
+
+## Navigation
+The main screen is intended to be embedded inside a UINavigationController to support navigation to the user detail screen.
