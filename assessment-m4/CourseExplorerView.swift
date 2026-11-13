@@ -57,6 +57,15 @@ struct CourseExplorerView: View {
                 }
             }
             .navigationTitle("Course Explorer")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        RegistrationView()
+                    } label: {
+                        Image(systemName: "person.badge.plus")
+                    }
+                }
+            }
         }
     }
 }
