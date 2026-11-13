@@ -16,21 +16,17 @@ struct RegistrationView: View {
         "iOS App Development"
     ]
 
-    private var isFormValid: Bool {
-        !studentName.trimmingCharacters(in: .whitespaces).isEmpty &&
-        email.contains("@") &&
-        email.contains(".")
-    }
-
     var body: some View {
         NavigationStack {
             Form {
                 Section("Student Information") {
                     TextField("Enter your name", text: $studentName)
+                        .accessibilityIdentifier("registration.nameField")
 
                     TextField("Enter your email", text: $email)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
+                        .accessibilityIdentifier("registration.emailField")
                 }
 
                 Section("Course Selection") {
@@ -58,12 +54,14 @@ struct RegistrationView: View {
                         }
                     }
                     .disabled(isLoading)
+                    .accessibilityIdentifier("registration.submitButton")
                 }
 
                 if !errorMessage.isEmpty {
                     Section("Error") {
                         Text(errorMessage)
                             .foregroundColor(.red)
+                            .accessibilityIdentifier("registration.errorMessage")
                     }
                 }
 
@@ -74,6 +72,7 @@ struct RegistrationView: View {
                             systemImage: "checkmark.circle.fill"
                         )
                         .foregroundColor(.green)
+                        .accessibilityIdentifier("registration.successMessage")
 
                         Text("Name: \(studentName)")
                         Text("Course: \(selectedCourse)")
