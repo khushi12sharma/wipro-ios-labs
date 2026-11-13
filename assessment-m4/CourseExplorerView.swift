@@ -64,6 +64,8 @@ struct CourseExplorerView: View {
                     } label: {
                         Image(systemName: "person.badge.plus")
                     }
+                    .accessibilityIdentifier("course.registrationButton")
+                    .accessibilityLabel("Open Registration")
                 }
             }
         }
