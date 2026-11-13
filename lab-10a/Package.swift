@@ -6,19 +6,17 @@ let package = Package(
     name: "Lab10A",
     products: [
         .library(
-            name: "CourseLogic",
-            targets: ["CourseLogic"]
+            name: "Lab10A",
+            targets: ["Lab10A"]
         )
     ],
     targets: [
         .target(
-            name: "CourseLogic",
-            path: "Sources/CourseLogic"
+            name: "Lab10A"
         ),
         .testTarget(
-            name: "CourseLogicTests",
-            dependencies: ["CourseLogic"],
-            path: "Tests/CourseLogicTests"
+            name: "Lab10ATests",
+            dependencies: ["Lab10A"]
         )
     ]
 )
