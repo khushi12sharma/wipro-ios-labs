@@ -48,20 +48,12 @@ struct RegistrationView: View {
         .navigationTitle("Registration")
     }
 
-    func registerStudent() {
-        let trimmedName = studentName.trimmingCharacters(in: .whitespaces)
-
-        let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
-
-        guard !trimmedName.isEmpty else {
-            message = "Please enter your name."
-            isSuccess = false
-            return
-        }
-
-        guard trimmedEmail.contains("@"),
-              trimmedEmail.contains(".") else {
-            message = "Please enter a valid email."
+    private func registerStudent() {
+        if let error = FormValidator.validateRegistration(
+            name: studentName,
+            email: email
+        ) {
+            message = error
             isSuccess = false
             return
         }
