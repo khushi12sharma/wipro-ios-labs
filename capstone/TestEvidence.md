@@ -5,22 +5,28 @@
 
 Framework: XCTest
 
-Eight unit test cases have been created.
+A total of 13 unit test cases have been written.
 
-| Test Case | Expected Result |
-|---|---|
-| Valid name | True |
-| Empty name | False |
-| Name with spaces only | False |
-| Valid email | True |
-| Email without @ | False |
-| Email without dot | False |
-| Email containing spaces | False |
-| Registration with invalid name | Validation error |
+| No. | Test Case | Expected Result |
+|---|---|---|
+| 1 | Valid name | True |
+| 2 | Empty name | False |
+| 3 | Name with spaces only | False |
+| 4 | Valid email | True |
+| 5 | Email without @ symbol | False |
+| 6 | Email without dot | False |
+| 7 | Email containing spaces | False |
+| 8 | Registration with invalid name | Validation error |
+| 9 | Initial course count | 3 courses |
+| 10 | Toggle favourite | Favourite status updates |
+| 11 | Toggle completed | Completion status updates |
+| 12 | Completed course count | Count updates |
+| 13 | Search courses | Matching courses are returned |
 
 ## 2. Test Execution Status
 
 - Test source code: Written
+- Number of test cases: 13
 - Xcode test execution: Pending
 - Passing test screenshot: Pending
 
@@ -28,10 +34,10 @@ Eight unit test cases have been created.
 
 - [ ] Course list displays courses.
 - [ ] Search filters courses.
+- [ ] Empty search message appears.
 - [ ] Course detail screen opens.
 - [ ] Favourite status updates.
 - [ ] Completion progress updates.
-- [ ] Empty search message appears.
 - [ ] Registration rejects empty name.
 - [ ] Registration rejects invalid email.
 - [ ] Registration displays success message.
