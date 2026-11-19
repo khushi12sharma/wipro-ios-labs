@@ -84,3 +84,56 @@ displayMarks(studentID: 999)
 
 let missingMarks = getMarks(studentID: 999) ?? 0
 print("Missing Student Marks:", missingMarks)
+
+// MARK: - GENERIC STACK
+
+struct Stack<Element> {
+
+    var items: [Element] = []
+
+    mutating func push(_ item: Element) {
+        items.append(item)
+    }
+
+    mutating func pop() -> Element? {
+        return items.popLast()
+    }
+
+    func peek() -> Element? {
+        return items.last
+    }
+
+    var isEmpty: Bool {
+        return items.isEmpty
+    }
+}
+
+// MARK: - INTEGER STACK
+
+print("\n===== INTEGER STACK =====")
+
+var intStack = Stack<Int>()
+
+intStack.push(10)
+intStack.push(20)
+intStack.push(30)
+
+print("Top Element:", intStack.peek() ?? 0)
+print("Removed Element:", intStack.pop() ?? 0)
+print("New Top:", intStack.peek() ?? 0)
+print("Is Empty:", intStack.isEmpty)
+
+// MARK: - STRING STACK
+
+print("\n===== STRING STACK =====")
+
+var stringStack = Stack<String>()
+
+stringStack.push("Swift")
+stringStack.push("Java")
+stringStack.push("Python")
+
+print("Top Element:", stringStack.peek() ?? "No Element")
+print("Removed Element:", stringStack.pop() ?? "No Element")
+print("New Top:", stringStack.peek() ?? "No Element")
+print("Is Empty:", stringStack.isEmpty)
