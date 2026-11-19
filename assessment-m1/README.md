@@ -29,3 +29,12 @@ The Swift source code can be tested using JDoodle or another Swift-compatible en
 
 ## Conclusion
 This milestone demonstrates the understanding of Swift foundations and object-oriented programming concepts.
+## R3 - Retain Cycle Fix
+
+A retain cycle occurs when two class instances hold strong references to each other. ARC cannot release their memory.
+
+In this implementation, Person strongly references Apartment, while Apartment weakly references Person.
+
+The weak reference prevents the retain cycle because it does not increase the reference count.
+
+The deinit methods confirm that both objects are successfully released from memory.
