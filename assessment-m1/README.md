@@ -38,3 +38,26 @@ In this implementation, Person strongly references Apartment, while Apartment we
 The weak reference prevents the retain cycle because it does not increase the reference count.
 
 The deinit methods confirm that both objects are successfully released from memory.
+
+
+## R4 - Error Handling
+
+A throwing validation function was created to validate student details.
+
+Two custom errors were defined using an enum:
+
+1. emptyName - when the student name is empty.
+2. invalidMarks - when marks are below 0 or above 100.
+
+The errors are generated using throw and handled using do-catch blocks.
+
+Test cases:
+- Valid student: Khushi, 90 marks.
+- Empty student name.
+- Invalid marks: 120.
+
+## Conclusion
+
+This milestone demonstrates Swift fundamentals, including
+collections, optionals, generics, memory management,
+error handling, protocols and higher-order functions.
